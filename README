@@ -1,0 +1,18 @@
+## install framework
+composer install
+
+## add database config
+add .env.local
+
+APP_ENV=dev
+APP_SECRET=499843fd292f764215066c62185e600c
+DATABASE_URL=mysql://root:root@db:3306/test33?serverVersion=5.7
+
+## install database
+./bin/console doctrine:database:create
+
+## install database schema
+./bin/console doctrine:schema:update --force
+
+## start builtin webserver
+symfony server:start
